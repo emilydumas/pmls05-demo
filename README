@@ -60,8 +60,8 @@ In this demo, the covector file is "covectors.txt".
 
 3d. Sphere primitives (stereographic projection)
 
-The script "make-spheres-inc.py" convert the data in the covector file
-to a set of POV-Ray sphere primitives by rotating and
+The script "projected-spheres.py" converts the data in the covector
+file to a set of POV-Ray sphere primitives by rotating and
 stereographically projecting the covectors and then generating POV-Ray
 sphere primtives with appropriate radii.  The result is the SPHERE
 FILE, which in this demo is called "spheres.inc".
