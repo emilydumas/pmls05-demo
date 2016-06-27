@@ -1,0 +1,78 @@
+PML(S_{0,5}) Rotating Stereographic Projection
+
+A demo from the PML Visualization Project
+by David Dumas and François Guéritaud
+
+Created for the 2016 ICERM Workshop "Illustrating Mathematics".
+
+
+
+1. Requirements
+
+For all steps
+  Some kind of unix-like environment (e.g. typical linux distribution)
+  Python 2.7 - http://python.org/
+  Numpy - http://numpy.scipy.org/
+
+For rendering
+
+  POV-Ray 3.6+ - http://www.povray.org/
+
+
+2. QUICK START
+
+Run the script "make-pml-image.sh".  View the output image "pmls05.png".
+
+
+3. The steps
+
+The script "make-pml-image.sh" performs the following steps to create
+the image:
+
+3a. Cocycles
+
+The file "pent2.csv" contains generators of a Fuchsian group
+corresponding to a hyperbolic structure on the five-punctured sphere
+and a collection of shearing cocycles that form a basis of the tangent
+space to Teichmuller space at this point.  This is the COCYCLE FILE.
+
+The Mathematica notebook "pentagon-calculations.nb" generates the
+cocycle file; however, the cocycle file is included with the demo
+source code so that mathematica is not required.
+
+3b. Words
+
+The script "scc.py" generates a list of simple closed curves on the
+five-punctured sphere by exploring a Cayley graph of the braid group
+to a certain depth.  The result is a list of elements of the free
+group F_4, comprising a WORD FILE.
+
+In this demo, the word file is "words.txt".
+
+3c. Covectors
+
+The script "lenderiv.py" reads a cocycle file and word file and
+computes the derivative of the logarithm of hyperbolic length for each
+of the simple closed curves in the direction of each shearing
+cocycle.  These are written to a COVECTOR FILE.
+
+In this demo, the covector file is "covectors.txt".
+
+3d. Sphere primitives (stereographic projection)
+
+The script "make-spheres-inc.py" convert the data in the covector file
+to a set of POV-Ray sphere primitives by rotating and
+stereographically projecting the covectors and then generating POV-Ray
+sphere primtives with appropriate radii.  The result is the SPHERE
+FILE, which in this demo is called "spheres.inc".
+
+3e. Rendering
+
+Finally, POV-Ray is called to render the scene described in
+"scene.pov".  This scene files imports the sphere file after setting
+parameters such as camera position and lighting.
+
+
+4. Comments, questions, bug reports
+
+Send to: david@dumas.io
