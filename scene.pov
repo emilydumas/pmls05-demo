@@ -1,3 +1,8 @@
+// POV-Ray scene file for PML(S_{0,5}) demo
+//
+// From the PML Visualization Project (http://dumas.io/PML/)
+// by David Dumas and Francois Gueritaud
+
 #include "colors.inc"
 #include "shapes.inc"
 #include "textures.inc"

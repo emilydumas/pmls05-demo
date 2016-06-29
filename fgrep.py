@@ -2,10 +2,10 @@
 ######################################################################
 ## Filename:      fgrep.py
 ## Description:   Calculate with a free group matrix representation
-## Author:        David Dumas <david@dumas.io>
-## Modified at:   Wed Nov 28 14:25:58 2012
+## Modified at:   Wed Jun 29 16:18:46 2016
 ##                
-## Copyright (C) 2012 David Dumas
+## From the PML Visualization Project (http://dumas.io/PML/)
+## by David Dumas and Francois Gueritaud
 ##                
 ## This program is free software distributed under the GNU General
 ## Public License (http://www.gnu.org/licenses/gpl.txt).

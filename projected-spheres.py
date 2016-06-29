@@ -3,10 +3,10 @@
 ## Filename:      projected-spheres.py
 ## Description:   Rotate and stereographically project, generate
 ##                POV-Ray sphere primitives
-## Author:        David Dumas <david@dumas.io>
-## Modified at:   Mon Jun 27 11:39:33 2016
+## Modified at:   Wed Jun 29 16:18:27 2016
 ##                
-## Copyright (C) 2012, 2016 David Dumas
+## From the PML Visualization Project (http://dumas.io/PML/)
+## by David Dumas and Francois Gueritaud
 ##                
 ## This program is free software distributed under the GNU General
 ## Public License (http://www.gnu.org/licenses/gpl.txt).
@@ -51,15 +51,25 @@ for line in sys.stdin:
         continue
     if line[0] == '#':
         continue
+
+    # PARSE INPUT LINE
     fields = line.split()
-    w = fields[0]
-    L = float(fields[1])
-    p = array([float(x) for x in fields[2:]])
-    r = 0.6 / pow(L,1.2)
-    C = project(p,THETA)
+
+    w = fields[0] # word
+    L = float(fields[1]) # length
+    p = array([float(x) for x in fields[2:]]) # covector
+
+    # CALCULATE PROJECTION / SPHERE
+    r = 0.6 / pow(L,1.2) # radius
+    C = project(p,THETA) # center
+
+    # OUTPUT
     print 'sphere { <%f,%f,%f>, %f }' % (C[0],C[1],C[2],r)
+
+    # Progress
     nprocessed += 1
     if nprocessed % 1000 == 0:
 	sys.stderr.write('.')
+
 sys.stderr.write('\n')
 

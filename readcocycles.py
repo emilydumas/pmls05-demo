@@ -1,11 +1,11 @@
 ######################################################################
 ## Filename:      readcocycles.py
 ## Description:   Read and parse list of cocycles for F_4
-## Author:        David Dumas <david@dumas.io>
-## Modified at:   Wed Nov 28 14:26:49 2012
+## Modified at:   Wed Jun 29 16:18:11 2016
 ##                
-## Copyright (C) 2012 David Dumas
-##                
+## From the PML Visualization Project (http://dumas.io/PML/)
+## by David Dumas and Francois Gueritaud
+##
 ## This program is free software distributed under the GNU General
 ## Public License (http://www.gnu.org/licenses/gpl.txt).
 ######################################################################
