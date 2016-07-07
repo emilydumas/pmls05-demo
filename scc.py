@@ -101,7 +101,7 @@ def lexmin(w0):
         if mylexcmp(wnew,w) < 0:
             w = wnew
     w0 = inverse(w0)
-    for i in xrange(1,len(w0)):
+    for i in xrange(len(w0)):
         wnew = rotate(w0,i)
         if mylexcmp(wnew,w) < 0:
             w = wnew
