@@ -52,4 +52,8 @@ union {
     }
   }
   no_shadow
+
+  // This rotation is only used for rendering an animation
+  // (defaults to zero rotation when rendering a single image)
+  rotate 360*clock*z
 }
