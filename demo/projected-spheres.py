@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 ######################################################################
 ## Filename:      projected-spheres.py
 ## Description:   Rotate and stereographically project, generate
@@ -64,12 +64,12 @@ for line in sys.stdin:
     C = project(p,THETA) # center
 
     # OUTPUT
-    print 'sphere { <%f,%f,%f>, %f }' % (C[0],C[1],C[2],r)
+    print('sphere { <%f,%f,%f>, %f }' % (C[0],C[1],C[2],r))
 
     # Progress
     nprocessed += 1
     if nprocessed % 1000 == 0:
-	sys.stderr.write('.')
+        sys.stderr.write('.')
 
 sys.stderr.write('\n')
 

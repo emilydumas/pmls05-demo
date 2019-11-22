@@ -2,7 +2,7 @@
 
 ## Requirements
 
-* [Python 2.7](http://python.org/)
+* [Python 2.7 or 3.5+](http://python.org/)
 * [Numpy](http://www.numpy.org/) (tested with v1.11.0)
 * Posix shell environment
 * [POV-Ray 3.6+](http://www.povray.org/) (only required for rendering)

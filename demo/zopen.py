@@ -18,6 +18,6 @@ def zopen(fn,mode):
         import gzip
         f = gzip.GzipFile(fn,mode)
     else:
-        f = file(fn,mode)
+        f = open(fn,mode)
     return f
     

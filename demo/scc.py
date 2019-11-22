@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 ######################################################################
 ## Filename:      scc.py
 ## Description:   Generate list of simple closed curves on S_{0,5}
@@ -76,32 +76,35 @@ def rotate(w,i):
     i = i % len(w)
     return w[i:] + w[:i]
 
+def compare(i,j):
+    return (i>j)-(j<i)
+
 def mycmp(i,j):
     if i>0 and j>0:
-        return cmp(i,j)
+        return compare(i,j)
     if i>0 and j<0:
         return -1
     if i<0 and j>0:
         return 1
-    return cmp(-i,-j)
+    return compare(-i,-j)
 
 def mylexcmp(x,y):
     for i in range(min(len(x),len(y))):
         c = mycmp(x[i],y[i])
         if c != 0:
             return c
-    return cmp(len(x),len(y))
+    return compare(len(x),len(y))
 
 def lexmin(w0):
     if len(w0)<2:
         return w0
     w = w0
-    for i in xrange(1,len(w0)):
+    for i in range(1,len(w0)):
         wnew = rotate(w0,i)
         if mylexcmp(wnew,w) < 0:
             w = wnew
     w0 = inverse(w0)
-    for i in xrange(len(w0)):
+    for i in range(len(w0)):
         wnew = rotate(w0,i)
         if mylexcmp(wnew,w) < 0:
             w = wnew
@@ -182,21 +185,21 @@ def main():
         new_work.difference_update(work)
 
         pool.update(work)
-        print '# F_5: generation %d: %d in pool' % (n,len(pool))
+        print('# F_5: generation %d: %d in pool' % (n,len(pool)))
         work = new_work
 
     pool.update(work)
-    print '# F_5: generation %d: %d in pool' % (args.depth,len(pool))
+    print('# F_5: generation %d: %d in pool' % (args.depth,len(pool)))
 
     # Substitute down to F_4
     projector = endomorphism( 1, 2, 3, 4, (-4,-3,-2,-1) )
     pool4 = set( conj_class_rep(projector(w)) for w in pool )
 
-    print '# F_4: %d words remain' % (len(pool4))
+    print('# F_4: %d words remain' % (len(pool4)))
 
     # Write output to a file
     if args.output:
-        outfile = file(args.output,'wt')
+        outfile = open(args.output,'wt')
     else:
         outfile = sys.stdout
     for w in pool4:

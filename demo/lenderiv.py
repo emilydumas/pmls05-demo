@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 ######################################################################
 ## Filename:      lenderiv.py
 ## Description:   Compute derivatives of lengths of curves in a

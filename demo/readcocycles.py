@@ -60,14 +60,14 @@ def readcocycles(f):
 def main():
     import sys
     d = readcocycles(sys.stdin)
-    print 'Representation of rank ',len(d['representation'])
+    print('Representation of rank ',len(d['representation']))
     for j,g in enumerate(d['representation']):
-        print 'g%d = ' % (j+1), g
-    print 'Read %d cocycles' % len(d['cocycles'])
+        print('g%d = ' % (j+1), g)
+    print('Read %d cocycles' % len(d['cocycles']))
     for i,c in enumerate(d['cocycles']):
-        print 'Cocycle ',i+1,':'
+        print('Cocycle ',i+1,':')
         for j,g in enumerate(d['cocycles'][i]):
-            print 'g%ddot = ' % (j+1), g
+            print('g%ddot = ' % (j+1), g)
 
 if __name__=='__main__':
     main()

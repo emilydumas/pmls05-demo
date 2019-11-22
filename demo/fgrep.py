@@ -37,9 +37,9 @@ class FreeGroup(dict):
                 self.n = sh[0]
                 if sh[1] != self.n: 
                     raise ValueError('Bad matrix size %s; should be (%d,%d).' % (str(sh),self.n,self.n))
-        keys = self.keys()
+        keys = list(self.keys())
         ukeys = [ k.upper() for k in keys ]
-        self.alphabet = string.join(keys + ukeys,'')
+        self.alphabet = ''.join(keys + ukeys)
 
     def __getitem__(self, k):
         if k=='':
@@ -53,7 +53,7 @@ class FreeGroup(dict):
             else:
                 raise KeyError('Bad key (%s), need string of characters from alphabet %s' % (k,self.alphabet))
         elif wordre.match(k):
-            return self[k[:len(k)/2]] * self[k[len(k)/2:]]
+            return self[k[:len(k)//2]] * self[k[len(k)//2:]]
         else:
             raise KeyError('Bad key (%s), need string of characters from alphabet %s' % (k,self.alphabet))
 
@@ -63,7 +63,7 @@ if __name__ == '__main__':
     gens = { 'a' : matrix([[1,1],[0,1]]), 'b':matrix([[1,0],[1,1]]) }
     F = FreeGroup(gens)
     words = [ 'a', 'b', 'A', 'B', 'ab', 'ba', 'aB', 'Ba', 'abBA', 'aaa', 'aabaBBA']
-    print F.keys()
+    print(list(F.keys()))
     for w in words:
-        print '%s = %s' % (w,matstr(F[w]))
+        print('%s = %s' % (w,matstr(F[w])))
 
